@@ -1,5 +1,6 @@
 #pragma once
-#include "SFML\Graphics.hpp"
+#include <SFML/Graphics.hpp>
+#include <string>
 
 namespace GameColor {
     const sf::Color Blue = {48, 60, 116};
@@ -14,3 +15,9 @@ namespace GameColor {
     const sf::Color LightRed = {236, 157, 174};
     const sf::Color DarkRed = {79, 0, 17};
 }
+
+namespace FilePaths {
+    const std::string SplashScreen = "Resources/Images/Splash.png";
+}
+
+const float SPLASH_SCREEN_TIME = 3.0f;

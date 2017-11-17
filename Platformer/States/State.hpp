@@ -9,9 +9,9 @@ public:
     virtual void Pause() = 0;
     virtual void Resume() = 0;
     
-    virtual void HandleEvents(Managers& managers) = 0;
-    virtual void Update(Managers& managers) = 0;
-    virtual void Draw(Managers& managers) = 0;
+    virtual void HandleInput() = 0;
+    virtual void Update(float dt) = 0;
+    virtual void Draw(float dt) = 0;
     
     void ChangeState(Managers& managers, StateRef state);
     

@@ -1,9 +1,11 @@
 #include "StateMachine.hpp"
 #include "../States/State.hpp"
+#include "../States/SplashScreenState.hpp"
+
+#include <memory>
 
 
 StateMachine::StateMachine() {
-    
 }
 
 StateMachine::~StateMachine() {
