@@ -7,11 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A317ECAC1FBEF2EF002E22F0 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = A317ECAB1FBEF2EF002E22F0 /* ResourcePath.mm */; };
 		A317ECAF1FBEF2EF002E22F0 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A317ECAE1FBEF2EF002E22F0 /* main.cpp */; };
-		A317ECB21FBEF2EF002E22F0 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A317ECB11FBEF2EF002E22F0 /* cute_image.jpg */; };
-		A317ECB41FBEF2EF002E22F0 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = A317ECB31FBEF2EF002E22F0 /* nice_music.ogg */; };
-		A317ECB61FBEF2EF002E22F0 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A317ECB51FBEF2EF002E22F0 /* sansation.ttf */; };
 		A317ECB81FBEF2EF002E22F0 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = A317ECB71FBEF2EF002E22F0 /* icon.png */; };
 		A317ECC01FBEF3AE002E22F0 /* GameEngine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A317ECBE1FBEF3AE002E22F0 /* GameEngine.cpp */; };
 		A317ECC71FBEF693002E22F0 /* StateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A317ECC51FBEF693002E22F0 /* StateMachine.cpp */; };
@@ -23,12 +19,7 @@
 /* Begin PBXFileReference section */
 		A317ECA61FBEF2EF002E22F0 /* Platformer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Platformer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A317ECAA1FBEF2EF002E22F0 /* Platformer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Platformer-Info.plist"; sourceTree = "<group>"; };
-		A317ECAB1FBEF2EF002E22F0 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
-		A317ECAD1FBEF2EF002E22F0 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		A317ECAE1FBEF2EF002E22F0 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		A317ECB11FBEF2EF002E22F0 /* cute_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cute_image.jpg; sourceTree = "<group>"; };
-		A317ECB31FBEF2EF002E22F0 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
-		A317ECB51FBEF2EF002E22F0 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
 		A317ECB71FBEF2EF002E22F0 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		A317ECBE1FBEF3AE002E22F0 /* GameEngine.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameEngine.cpp; sourceTree = "<group>"; };
 		A317ECBF1FBEF3AE002E22F0 /* GameEngine.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameEngine.hpp; sourceTree = "<group>"; };
@@ -88,8 +79,6 @@
 		A317ECA91FBEF2EF002E22F0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				A317ECAB1FBEF2EF002E22F0 /* ResourcePath.mm */,
-				A317ECAD1FBEF2EF002E22F0 /* ResourcePath.hpp */,
 				A317ECAA1FBEF2EF002E22F0 /* Platformer-Info.plist */,
 			);
 			name = "Supporting Files";
@@ -98,9 +87,6 @@
 		A317ECB01FBEF2EF002E22F0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A317ECB11FBEF2EF002E22F0 /* cute_image.jpg */,
-				A317ECB31FBEF2EF002E22F0 /* nice_music.ogg */,
-				A317ECB51FBEF2EF002E22F0 /* sansation.ttf */,
 				A317ECB71FBEF2EF002E22F0 /* icon.png */,
 			);
 			name = Resources;
@@ -187,9 +173,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A317ECB81FBEF2EF002E22F0 /* icon.png in Resources */,
-				A317ECB61FBEF2EF002E22F0 /* sansation.ttf in Resources */,
-				A317ECB41FBEF2EF002E22F0 /* nice_music.ogg in Resources */,
-				A317ECB21FBEF2EF002E22F0 /* cute_image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +205,6 @@
 				A317ECAF1FBEF2EF002E22F0 /* main.cpp in Sources */,
 				A317ECD31FBEF966002E22F0 /* State.cpp in Sources */,
 				A317ECC71FBEF693002E22F0 /* StateMachine.cpp in Sources */,
-				A317ECAC1FBEF2EF002E22F0 /* ResourcePath.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
