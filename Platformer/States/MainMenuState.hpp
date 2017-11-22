@@ -1,6 +1,7 @@
 #pragma once
 #include "State.hpp"
-#include "../GameEngine.hpp"
+
+struct Managers;
 
 class MainMenuState: public State {
 public:
@@ -17,5 +18,9 @@ public:
     void Draw(float dt) override;
 private:
     Managers& _managers;
+    int activeSelection = 0;
+    sf::Text Title;
+    sf::Text NewGame;
+    sf::Text Exit;
 };
 

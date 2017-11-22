@@ -1,6 +1,8 @@
 #pragma once
+#include <SFML/Graphics.hpp>
 #include "State.hpp"
-#include "../GameEngine.hpp"
+
+struct Managers;
 
 class SplashScreenState: public State {
 public:

@@ -18,6 +18,7 @@ namespace GameColor {
 
 namespace FilePaths {
     const std::string SplashScreen = "Resources/Images/Splash.png";
+    const std::string MenuFont     = "Resources/Fonts/VCR_OSD_MONO.ttf";
 }
 
 const float SPLASH_SCREEN_TIME = 3.0f;

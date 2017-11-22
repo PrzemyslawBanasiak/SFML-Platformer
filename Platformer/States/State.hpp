@@ -1,5 +1,5 @@
 #pragma once
-#include "../GameEngine.hpp"
+struct Managers;
 
 class State{
 public:
@@ -12,8 +12,6 @@ public:
     virtual void HandleInput() = 0;
     virtual void Update(float dt) = 0;
     virtual void Draw(float dt) = 0;
-    
-    void ChangeState(Managers& managers, StateRef state);
     
 protected:
     State() {}

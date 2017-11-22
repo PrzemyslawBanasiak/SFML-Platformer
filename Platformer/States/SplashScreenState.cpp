@@ -1,6 +1,7 @@
 #include "SplashScreenState.hpp"
-#include "../Definitions.hpp"
 #include "MainMenuState.hpp"
+#include "../Definitions.hpp"
+#include "../GameEngine.hpp"
 
 SplashScreenState::SplashScreenState(Managers& managers) : _managers(managers){
 }
