@@ -17,8 +17,10 @@ namespace GameColor {
 }
 
 namespace FilePaths {
-    const std::string SplashScreen = "Resources/Images/Splash.png";
-    const std::string MenuFont     = "Resources/Fonts/VCR_OSD_MONO.ttf";
+    const std::string ResourceDir   = "/Users/przemekbanasiak/Projects/Platformer/Platformer/Resources";
+    const std::string SplashScreen  = ResourceDir + "/Images/Splash.png";
+    const std::string MenuFont      = ResourceDir + "/Fonts/VCR_OSD_MONO.ttf";
+    const std::string Level1        = ResourceDir + "/Levels/Mapa1.json";
 }
 
-const float SPLASH_SCREEN_TIME = 3.0f;
+const float SPLASH_SCREEN_TIME = 0.0f;

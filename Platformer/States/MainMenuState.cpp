@@ -1,5 +1,7 @@
+#include <iostream>
 #include "../Definitions.hpp"
 #include "../GameEngine.hpp"
+#include "GameState.hpp"
 #include "MainMenuState.hpp"
 
 MainMenuState::MainMenuState(Managers& managers) : _managers(managers) {
@@ -40,8 +42,14 @@ void MainMenuState::HandleInput() {
         if (sf::Event::Closed == event.type) {
             _managers.window.close();
         }
-        if(InputManager::IsPressed(Exit, _managers.window)) {
-            _managers.window.close();
+        if(event.mouseButton.button == sf::Mouse::Left) {
+            if(InputManager::IsPressed(NewGame, _managers.window)) {
+                _managers.state.ChangeState(std::unique_ptr<State>(new GameState("level1", _managers)));
+            }
+            
+            if(InputManager::IsPressed(Exit, _managers.window)) {
+                _managers.window.close();
+            }
         }
     }
 }

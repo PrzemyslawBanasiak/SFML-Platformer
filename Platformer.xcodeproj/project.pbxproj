@@ -12,6 +12,9 @@
 		A317ECC71FBEF693002E22F0 /* StateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A317ECC51FBEF693002E22F0 /* StateMachine.cpp */; };
 		A317ECCB1FBEF754002E22F0 /* AssetManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A317ECC91FBEF754002E22F0 /* AssetManager.cpp */; };
 		A317ECCE1FBEF779002E22F0 /* InputManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A317ECCC1FBEF779002E22F0 /* InputManager.cpp */; };
+		A341676F1FCD685100FAB3C6 /* tinyxml2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A341676E1FCD685100FAB3C6 /* tinyxml2.cpp */; };
+		A35238361FC6BF57009746FC /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A35238341FC6BF57009746FC /* GameState.cpp */; };
+		A35238391FC6D405009746FC /* LevelLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A35238371FC6D405009746FC /* LevelLoader.cpp */; };
 		A3A695B91FBF15C4004EBE05 /* SplashScreenState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3A695B71FBF15C4004EBE05 /* SplashScreenState.cpp */; };
 		A3A695C71FBF2338004EBE05 /* Resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = A3A695C61FBF2325004EBE05 /* Resources */; };
 		A3A695CA1FBF3010004EBE05 /* MainMenuState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A3A695C81FBF3010004EBE05 /* MainMenuState.cpp */; };
@@ -44,6 +47,13 @@
 		A317ECCC1FBEF779002E22F0 /* InputManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = InputManager.cpp; sourceTree = "<group>"; };
 		A317ECCD1FBEF779002E22F0 /* InputManager.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = InputManager.hpp; sourceTree = "<group>"; };
 		A317ECD21FBEF966002E22F0 /* State.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = State.hpp; sourceTree = "<group>"; };
+		A341676D1FCD684C00FAB3C6 /* tinyxml2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tinyxml2.h; sourceTree = "<group>"; };
+		A341676E1FCD685100FAB3C6 /* tinyxml2.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tinyxml2.cpp; sourceTree = "<group>"; };
+		A35238341FC6BF57009746FC /* GameState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
+		A35238351FC6BF57009746FC /* GameState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = GameState.hpp; sourceTree = "<group>"; };
+		A35238371FC6D405009746FC /* LevelLoader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LevelLoader.cpp; sourceTree = "<group>"; };
+		A35238381FC6D405009746FC /* LevelLoader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LevelLoader.hpp; sourceTree = "<group>"; };
+		A352383B1FC6D42B009746FC /* json.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = json.h; sourceTree = "<group>"; };
 		A3A695B71FBF15C4004EBE05 /* SplashScreenState.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SplashScreenState.cpp; sourceTree = "<group>"; };
 		A3A695B81FBF15C4004EBE05 /* SplashScreenState.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SplashScreenState.hpp; sourceTree = "<group>"; };
 		A3A695C61FBF2325004EBE05 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
@@ -81,6 +91,7 @@
 		A317ECA81FBEF2EF002E22F0 /* Platformer */ = {
 			isa = PBXGroup;
 			children = (
+				A352383A1FC6D415009746FC /* Lib */,
 				A3A695C61FBF2325004EBE05 /* Resources */,
 				A317ECD01FBEF955002E22F0 /* States */,
 				A317ECC81FBEF6B8002E22F0 /* Managers */,
@@ -89,6 +100,8 @@
 				A317ECBE1FBEF3AE002E22F0 /* GameEngine.cpp */,
 				A317ECBF1FBEF3AE002E22F0 /* GameEngine.hpp */,
 				A317ECC11FBEF3F8002E22F0 /* Definitions.hpp */,
+				A35238371FC6D405009746FC /* LevelLoader.cpp */,
+				A35238381FC6D405009746FC /* LevelLoader.hpp */,
 			);
 			path = Platformer;
 			sourceTree = "<group>";
@@ -122,8 +135,20 @@
 				A3A695B81FBF15C4004EBE05 /* SplashScreenState.hpp */,
 				A3A695C81FBF3010004EBE05 /* MainMenuState.cpp */,
 				A3A695C91FBF3010004EBE05 /* MainMenuState.hpp */,
+				A35238341FC6BF57009746FC /* GameState.cpp */,
+				A35238351FC6BF57009746FC /* GameState.hpp */,
 			);
 			path = States;
+			sourceTree = "<group>";
+		};
+		A352383A1FC6D415009746FC /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				A341676E1FCD685100FAB3C6 /* tinyxml2.cpp */,
+				A341676D1FCD684C00FAB3C6 /* tinyxml2.h */,
+				A352383B1FC6D42B009746FC /* json.h */,
+			);
+			path = Lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,7 +226,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A317ECC01FBEF3AE002E22F0 /* GameEngine.cpp in Sources */,
+				A35238361FC6BF57009746FC /* GameState.cpp in Sources */,
 				A317ECCB1FBEF754002E22F0 /* AssetManager.cpp in Sources */,
+				A35238391FC6D405009746FC /* LevelLoader.cpp in Sources */,
+				A341676F1FCD685100FAB3C6 /* tinyxml2.cpp in Sources */,
 				A3A695B91FBF15C4004EBE05 /* SplashScreenState.cpp in Sources */,
 				A317ECCE1FBEF779002E22F0 /* InputManager.cpp in Sources */,
 				A317ECAF1FBEF2EF002E22F0 /* main.cpp in Sources */,
@@ -306,6 +334,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QG4W6ELJ62;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "Platformer/Platformer-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -317,6 +346,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QG4W6ELJ62;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = "Platformer/Platformer-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
