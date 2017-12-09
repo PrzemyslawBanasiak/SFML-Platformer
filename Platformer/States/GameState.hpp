@@ -1,7 +1,9 @@
 #pragma once
 #include <string>
 #include "State.hpp"
+#include "../Camera.hpp"
 #include "../LevelLoader.hpp"
+#include "../GameObjects/Player.hpp"
 
 struct Managers;
 
@@ -19,9 +21,14 @@ public:
     void Update(float dt) override;
     void Draw(float dt) override;
 private:
+    std::vector<sf::Sprite> _map;
+    std::vector<bool> _colliders;
+    
     Managers& _managers;
+    Camera _camera;
     LevelLoader _loader;
-    std::vector<sf::Sprite> _sprites;
+    Player _player;
+    float playerSpeed = 100.0f;
 };
 
 

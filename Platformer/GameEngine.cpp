@@ -11,8 +11,11 @@ GameEngine::~GameEngine() {
 }
 
 void GameEngine::Run() {
-    float dt = 0.0f;
+    float dt;
+    sf::Clock clock;
     while(_managers.window.isOpen()) {
+        dt = clock.restart().asSeconds();
+    
         _managers.state.GetActiveState()->HandleInput();
         _managers.state.GetActiveState()->Update(dt);
         _managers.state.GetActiveState()->Draw(dt);

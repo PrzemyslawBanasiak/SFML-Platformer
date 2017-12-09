@@ -45,6 +45,7 @@ void MainMenuState::HandleInput() {
         if(event.mouseButton.button == sf::Mouse::Left) {
             if(InputManager::IsPressed(NewGame, _managers.window)) {
                 _managers.state.ChangeState(std::unique_ptr<State>(new GameState("level1", _managers)));
+                break;
             }
             
             if(InputManager::IsPressed(Exit, _managers.window)) {

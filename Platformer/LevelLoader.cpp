@@ -11,6 +11,7 @@ namespace LoaderStruct {
         m.tilewidth = j.at("tilewidth").get<int>();
         m.tileheight= j.at("tileheight").get<int>();
         m.tilesets  = j.at("tilesets").get<std::vector<tileset>>();
+        m.layers    = j.at("layers").get<std::vector<layer>>();
     }
     
     void from_json(const nlohmann::json& j, tileset& t) {
@@ -22,6 +23,11 @@ namespace LoaderStruct {
         t.image = j.at("image").get<std::string>();
         t.imagewidth = j.at("imagewidth").get<int>();
         t.imageheight = j.at("imageheight").get<int>();
+    }
+    
+    void from_json(const nlohmann::json& j, layer& l) {
+        l.data = j.at("data").get<std::vector<int>>();
+        l.name = j.at("name").get<std::string>();
     }
 }
 

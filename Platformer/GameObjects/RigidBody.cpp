@@ -1,0 +1,35 @@
+#include "RigidBody.hpp"
+#include "GameObject.hpp"
+#include "../Definitions.hpp"
+
+RigidBody::RigidBody(GameObject& gameObject, const std::vector<bool>& map, int mapWidth)
+: _gameObject(gameObject)
+, _map(map)
+, _velocity({0.0f, 0.0f})
+, _mapWidth(mapWidth) {
+    
+}
+
+void RigidBody::Update(float dt) {
+    _gameObject.Move(_velocity * dt);
+    if(IsInAir()) {
+        _velocity += Physics::Gravity * dt;
+    } else {
+        _velocity = {0.0f, 0.0f};
+    }
+}
+
+//Player's origin is in left top
+bool RigidBody::IsInAir() {
+    const auto& bounds = _gameObject.GetSprite().getGlobalBounds();
+    int y = (bounds.top + bounds.height) / 70 * _mapWidth;
+    return !_map[(int) y + bounds.left / 70] || !_map[(int) y + (bounds.left + bounds.width) / 70];
+}
+
+std::vector<GameObject> RigidBody::GetCollidingObjects() {
+    return {};
+}
+
+void RigidBody::AddForce(const sf::Vector2f &dir) {
+    _velocity += dir;
+}

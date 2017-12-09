@@ -24,3 +24,16 @@ namespace FilePaths {
 }
 
 const float SPLASH_SCREEN_TIME = 0.0f;
+const float PLAYER_SPEED = 10.0f;
+
+std::string JoinUrls(std::string url1, std::string url2);
+
+namespace Physics {
+    const sf::Vector2f Gravity = {0.0f, 98.0f};
+}
+
+template<typename T, typename... Args>
+std::unique_ptr<T> make_unique(Args&&... args)
+{
+    return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
+}
