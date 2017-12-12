@@ -22,7 +22,7 @@ public:
     void Draw(float dt) override;
 private:
     std::vector<sf::Sprite> _map;
-    std::vector<bool> _colliders;
+    std::vector<char> _colliders;
     
     Managers& _managers;
     Camera _camera;

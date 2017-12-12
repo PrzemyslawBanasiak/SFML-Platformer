@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <memory>
 #include <string>
 
 namespace GameColor {
@@ -17,7 +18,11 @@ namespace GameColor {
 }
 
 namespace FilePaths {
-    const std::string ResourceDir   = "/Users/przemekbanasiak/Projects/Platformer/Platformer/Resources";
+#ifdef  __OSX__
+    const std::string ResourceDir = "/Users/przemekbanasiak/Projects/Platformer/Platformer/Resources";
+#else
+    const std::string ResourceDir = "C:\\Users\\zellu\\Desktop\\Projects\\platformer\\Debug\\Resources";
+#endif
     const std::string SplashScreen  = ResourceDir + "/Images/Splash.png";
     const std::string MenuFont      = ResourceDir + "/Fonts/VCR_OSD_MONO.ttf";
     const std::string Level1        = ResourceDir + "/Levels/Mapa1.json";
@@ -32,8 +37,9 @@ namespace Physics {
     const sf::Vector2f Gravity = {0.0f, 98.0f};
 }
 
-template<typename T, typename... Args>
-std::unique_ptr<T> make_unique(Args&&... args)
-{
-    return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
+namespace Custom {
+    template<typename T, typename... Args>
+    std::unique_ptr<T> make_unique(Args&&... args) {
+        return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
+    }
 }

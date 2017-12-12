@@ -15,9 +15,9 @@ void GameState::Init() {
     }
     _map.resize(_loader.GetMap().height * _loader.GetMap().width);
     for(auto l: _loader.GetLayers()){
-        for(int i = 0; i < l.data.size(); ++i) {
+        for(size_t i = 0; i < l.data.size(); ++i) {
             sf::Sprite s;
-            s.setPosition((i % _loader.GetMap().width) * 70, (((int) i / _loader.GetMap().width) * 70));
+            s.setPosition((float)(i % _loader.GetMap().width) * 70, (float)((i / _loader.GetMap().width) * 70));
             if(l.data[i] != 0) {
                 s.setTexture(_managers.asset.GetTexture(std::to_string(l.data[i]-1)));
             }
@@ -25,16 +25,16 @@ void GameState::Init() {
         }
     }
     
-    _colliders.reserve(_map.size());
+    _colliders.resize(_map.size());
     std::transform(_map.begin(), _map.end(), _colliders.begin(), [](const sf::Sprite& s){
-        return s.getTexture();
+        return s.getTexture() != 0;
     });
     
     sf::Sprite player;
     player.setPosition(70, 1260);
     player.setTexture(_managers.asset.GetTexture("31"));
     _player.SetSprite(player);
-    _player.SetRigidbody(make_unique<RigidBody>(_player, _colliders, _loader.GetMap().width));
+    _player.SetRigidbody(Custom::make_unique<RigidBody>(_player, _colliders, _loader.GetMap().width));
     _camera.SetFollowTarget(_player.GetSprite());
 }
 

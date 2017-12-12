@@ -1,4 +1,5 @@
 #include "Definitions.hpp"
+#include <iostream>
 
 std::string JoinUrls(std::string url1, std::string url2){
     const char sep = '/';
@@ -16,7 +17,6 @@ std::string JoinUrls(std::string url1, std::string url2){
     
     if(url2.front() != sep)
         url2 = sep + url2;
-        
     return url1 + url2;
     //    assert(JoinUrls("C:/users/", "zellus/home"), "C:/users/zellus/home");
     //    assert(JoinUrls("C:/users", "zellus/home"), "C:/users/zellus/home");

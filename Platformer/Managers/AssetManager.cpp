@@ -1,4 +1,5 @@
 #include "AssetManager.hpp"
+#include <iostream>
 
 void AssetManager::LoadTexture(const std::string& name, const std::string& filePath) {
     if(_textures.find(name) != _textures.end()) {

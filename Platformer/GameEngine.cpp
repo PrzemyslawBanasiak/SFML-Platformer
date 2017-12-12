@@ -1,5 +1,5 @@
 #include "GameEngine.hpp"
-#include "SplashScreenState.hpp"
+#include "States/SplashScreenState.hpp"
 
 GameEngine::GameEngine(std::string name) {
     _managers.window.create(sf::VideoMode(800, 600), "Plarformer", sf::Style::Close | sf::Style::Titlebar);
