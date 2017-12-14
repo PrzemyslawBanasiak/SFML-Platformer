@@ -22,8 +22,8 @@ void RigidBody::Update(float dt) {
 //Player's origin is in left top
 bool RigidBody::IsInAir() {
     const auto& bounds = _gameObject.GetSprite().getGlobalBounds();
-    int y = (int)(bounds.top + bounds.height) / 70 * _mapWidth;
-    return !_map[(int) (y + bounds.left / 70)] || !_map[(int) (y + (bounds.left + bounds.width) / 70)];
+    int y = (int)(bounds.top + bounds.height) / 128 * _mapWidth;
+    return !_map[(int) (y + bounds.left / 128)] || !_map[(int) (y + (bounds.left + bounds.width) / 128)];
 }
 
 std::vector<GameObject> RigidBody::GetCollidingObjects() {

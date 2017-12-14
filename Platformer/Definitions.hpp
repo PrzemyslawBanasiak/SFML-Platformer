@@ -26,10 +26,13 @@ namespace FilePaths {
     const std::string SplashScreen  = ResourceDir + "/Images/Splash.png";
     const std::string MenuFont      = ResourceDir + "/Fonts/VCR_OSD_MONO.ttf";
     const std::string Level1        = ResourceDir + "/Levels/Mapa1.json";
+    const std::string Player        = ResourceDir + "/Images/character/sheet/walk_sheet.png";
 }
 
 const float SPLASH_SCREEN_TIME = 0.0f;
-const float PLAYER_SPEED = 10.0f;
+const float PLAYER_SPEED = 220.0f;
+const float JUMP_SPEED = 30.0f; //It's PLAYER_SPEED * JUMP_SPEED * input.y
+const float FRAME_TIME = 0.1f;
 
 std::string JoinUrls(std::string url1, std::string url2);
 

@@ -5,37 +5,57 @@
 GameState::GameState(std::string level, Managers& managers)
     : _managers(managers)
     , _loader(FilePaths::Level1)
+    , _player(managers, {0, 0})
 {}
 
 void GameState::Init() {
-    for(auto tileset: _loader.GetTilesets()) {
-        for(auto tile : tileset.tiles) {
-            _managers.asset.LoadTexture(tile.first, JoinUrls(FilePaths::Level1, tile.second.image));
-        }
-    }
-    _map.resize(_loader.GetMap().height * _loader.GetMap().width);
+    _managers.asset.LoadTexture("tileset", JoinUrls(FilePaths::Level1, _loader.GetTilesets()[0].image));
+    _colliders.resize(_loader.GetMap().height * _loader.GetMap().width);
     for(auto l: _loader.GetLayers()){
-        for(size_t i = 0; i < l.data.size(); ++i) {
-            sf::Sprite s;
-            s.setPosition((float)(i % _loader.GetMap().width) * 70, (float)((i / _loader.GetMap().width) * 70));
-            if(l.data[i] != 0) {
-                s.setTexture(_managers.asset.GetTexture(std::to_string(l.data[i]-1)));
-            }
-            _map[i] = s;
+        if (l.type == "tilelayer") {
+            LoadTileLayer(l);
+        } else {
+            LoadObjectLayer(l);
         }
     }
     
-    _colliders.resize(_map.size());
-    std::transform(_map.begin(), _map.end(), _colliders.begin(), [](const sf::Sprite& s){
-        return s.getTexture() != 0;
-    });
-    
-    sf::Sprite player;
-    player.setPosition(70, 1260);
-    player.setTexture(_managers.asset.GetTexture("31"));
-    _player.SetSprite(player);
-    _player.SetRigidbody(Custom::make_unique<RigidBody>(_player, _colliders, _loader.GetMap().width));
-    _camera.SetFollowTarget(_player.GetSprite());
+    //_player.SetRigidbody(Custom::make_unique<RigidBody>(_player, _colliders, _loader.GetMap().width));
+   // _camera.SetFollowTarget(_player.GetSprite());
+}
+
+void GameState::LoadTileLayer(const LoaderStruct::layer& l) {
+    auto tileset = _loader.GetTilesets()[0];
+    for (size_t i = 0; i < l.data.size(); ++i) {
+        sf::Sprite s;
+        s.setPosition((i % _loader.GetMap().width) * tileset.tilewidth,
+            (i / _loader.GetMap().width) * tileset.tileheight);
+        if (l.data[i] != 0) {
+            s.setTexture(_managers.asset.GetTexture("tileset"));
+            int tileType = l.data[i] -1;
+            s.setTextureRect({tileType % tileset.columns * 130, tileType / tileset.columns * 130,
+                tileset.tilewidth, tileset.tileheight});
+        }
+
+        if (tileset.tiles[std::to_string(l.data[i])].type == "Terrain")
+            _colliders[i] = ETerrain;
+        else if (tileset.tiles[std::to_string(l.data[i])].type == "Kill")
+            _colliders[i] = EKiller;
+        else
+            _colliders[i] = ENone; //assuming only one tile can be at given place
+        _map.push_back(s);
+    }
+}
+
+void GameState::LoadObjectLayer(const LoaderStruct::layer& l) {
+    for (auto o : l.objects) {
+        if (o.type == "Player") {
+            _player = Player(_managers, {(float)o.x, (float)o.y});
+            _player.SetRigidbody(Custom::make_unique<RigidBody>(_player, _colliders, _loader.GetMap().width));
+            _player.SetAnimation(Custom::make_unique<PlayerAnimation>(_player, _managers));
+            _camera.SetFollowTarget(_player.GetSprite());
+        }
+
+    }
 }
 
 void GameState::Cleanup() {

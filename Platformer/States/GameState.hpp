@@ -7,6 +7,12 @@
 
 struct Managers;
 
+enum ColliderType {
+    ENone = 0,
+    ETerrain,
+    EKiller
+};
+
 class GameState: public State {
 public:
     GameState(std::string level, Managers& managers);
@@ -21,6 +27,9 @@ public:
     void Update(float dt) override;
     void Draw(float dt) override;
 private:
+    void LoadTileLayer(const LoaderStruct::layer& l);
+    void LoadObjectLayer(const LoaderStruct::layer& l);
+
     std::vector<sf::Sprite> _map;
     std::vector<char> _colliders;
     

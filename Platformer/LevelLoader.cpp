@@ -15,19 +15,40 @@ namespace LoaderStruct {
     }
     
     void from_json(const nlohmann::json& j, tileset& t) {
+        t.tilecount = j.at("tilecount").get<int>();
+        t.columns = j.at("columns").get<int>();
+        t.margin = j.at("margin").get<int>();
+        t.spacing = j.at("spacing").get<int>();
+        t.tilewidth = j.at("tilewidth").get<int>();
+        t.tileheight = j.at("tileheight").get<int>();
+
+        t.image = j.at("image").get<std::string>();
         t.name = j.at("name").get<std::string>();
         t.tiles = j.at("tiles").get<std::map<std::string, tile>>();
     }
-    
-    void from_json(const nlohmann::json& j, tile& t) {
-        t.image = j.at("image").get<std::string>();
-        t.imagewidth = j.at("imagewidth").get<int>();
-        t.imageheight = j.at("imageheight").get<int>();
+
+    void from_json(const nlohmann::json& j, layerObject& l) {
+        l.x = j.at("x").get<int>();
+        l.y = j.at("y").get<int>();
+        l.id = j.at("id").get<int>();
+        l.gid = j.at("gid").get<int>();
+        l.visible = j.at("visible").get<bool>();
+        l.rotation = j.at("rotation").get<int>();
+        l.name = j.at("name").get<std::string>();
+        l.type = j.at("type").get<std::string>();
     }
     
     void from_json(const nlohmann::json& j, layer& l) {
-        l.data = j.at("data").get<std::vector<int>>();
         l.name = j.at("name").get<std::string>();
+        l.type = j.at("type").get<std::string>();
+        if (j.find("data") != j.end())
+            l.data = j.at("data").get<std::vector<int>>();
+        if (j.find("objects") != j.end())
+            l.objects = j.at("objects").get<std::vector<layerObject>>();
+    }
+
+    void from_json(const nlohmann::json& j, tile& t) {
+        t.type = j.at("type").get<std::string>();
     }
 }
 

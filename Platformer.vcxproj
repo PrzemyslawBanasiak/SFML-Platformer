@@ -112,6 +112,7 @@
     <ClCompile Include="platformer\GameEngine.cpp" />
     <ClCompile Include="platformer\gameobjects\GameObject.cpp" />
     <ClCompile Include="platformer\gameobjects\Player.cpp" />
+    <ClCompile Include="Platformer\GameObjects\PlayerAnimation.cpp" />
     <ClCompile Include="platformer\gameobjects\RigidBody.cpp" />
     <ClCompile Include="platformer\LevelLoader.cpp" />
     <ClCompile Include="platformer\lib\tinyxml2.cpp" />
@@ -129,6 +130,7 @@
     <ClInclude Include="platformer\GameEngine.hpp" />
     <ClInclude Include="platformer\gameobjects\GameObject.hpp" />
     <ClInclude Include="platformer\gameobjects\Player.hpp" />
+    <ClInclude Include="Platformer\GameObjects\PlayerAnimation.hpp" />
     <ClInclude Include="platformer\gameobjects\RigidBody.hpp" />
     <ClInclude Include="platformer\LevelLoader.hpp" />
     <ClInclude Include="platformer\lib\json.h" />
