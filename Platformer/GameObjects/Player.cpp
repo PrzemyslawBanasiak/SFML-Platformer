@@ -24,11 +24,3 @@ void Player::Update(float dt){
     }
 }
 
-void Player::SetRigidbody(std::unique_ptr<RigidBody> rigidbody) {
-    _rigidbody = std::move(rigidbody);
-}
-
-void Player::SetAnimation(std::unique_ptr<PlayerAnimation> animation) {
-    _animation = std::move(animation);
-}
-

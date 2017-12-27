@@ -4,14 +4,9 @@
 #include "../Camera.hpp"
 #include "../LevelLoader.hpp"
 #include "../GameObjects/Player.hpp"
+#include "../GameMap.hpp"
 
 struct Managers;
-
-enum ColliderType {
-    ENone = 0,
-    ETerrain,
-    EKiller
-};
 
 class GameState: public State {
 public:
@@ -30,8 +25,11 @@ private:
     void LoadTileLayer(const LoaderStruct::layer& l);
     void LoadObjectLayer(const LoaderStruct::layer& l);
 
-    std::vector<sf::Sprite> _map;
-    std::vector<char> _colliders;
+    GameMap _map;
+
+
+    //std::vector<sf::Sprite> _map;
+    //std::vector<char> _colliders;
     
     Managers& _managers;
     Camera _camera;

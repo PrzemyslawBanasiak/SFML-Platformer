@@ -1,8 +1,8 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include "GameObject.hpp"
 
 struct Managers;
+class GameObject;
 
 class PlayerAnimation {
 public:

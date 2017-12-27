@@ -1,15 +1,19 @@
 #pragma once
 #include <vector>
 #include <SFML/Graphics.hpp>
-#include "GameObject.hpp"
+
+class GameObject;
 
 class RigidBody {
 public:
     RigidBody(GameObject& gameObject, const std::vector<char>& map, int mapWidth);
+
+    void BeforeUpdate();
     void Update(float dt);
     bool IsInAir();
+    void Move(const sf::Vector2f& dir);
+    
     std::vector<GameObject> GetCollidingObjects();
-    void AddForce(const sf::Vector2f& dir);
 private:
     const std::vector<char>& _map;
     GameObject& _gameObject;

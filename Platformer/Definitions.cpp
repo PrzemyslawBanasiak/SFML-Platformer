@@ -1,5 +1,4 @@
 #include "Definitions.hpp"
-#include <iostream>
 
 std::string JoinUrls(std::string url1, std::string url2){
     const char sep = '/';

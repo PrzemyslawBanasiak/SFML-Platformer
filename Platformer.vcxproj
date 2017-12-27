@@ -110,6 +110,7 @@
     <ClCompile Include="platformer\Camera.cpp" />
     <ClCompile Include="platformer\Definitions.cpp" />
     <ClCompile Include="platformer\GameEngine.cpp" />
+    <ClCompile Include="Platformer\GameMap.cpp" />
     <ClCompile Include="platformer\gameobjects\GameObject.cpp" />
     <ClCompile Include="platformer\gameobjects\Player.cpp" />
     <ClCompile Include="Platformer\GameObjects\PlayerAnimation.cpp" />
@@ -128,6 +129,7 @@
     <ClInclude Include="platformer\Camera.hpp" />
     <ClInclude Include="platformer\Definitions.hpp" />
     <ClInclude Include="platformer\GameEngine.hpp" />
+    <ClInclude Include="Platformer\GameMap.hpp" />
     <ClInclude Include="platformer\gameobjects\GameObject.hpp" />
     <ClInclude Include="platformer\gameobjects\Player.hpp" />
     <ClInclude Include="Platformer\GameObjects\PlayerAnimation.hpp" />

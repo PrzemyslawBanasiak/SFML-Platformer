@@ -25,25 +25,7 @@ void GameState::Init() {
 
 void GameState::LoadTileLayer(const LoaderStruct::layer& l) {
     auto tileset = _loader.GetTilesets()[0];
-    for (size_t i = 0; i < l.data.size(); ++i) {
-        sf::Sprite s;
-        s.setPosition((i % _loader.GetMap().width) * tileset.tilewidth,
-            (i / _loader.GetMap().width) * tileset.tileheight);
-        if (l.data[i] != 0) {
-            s.setTexture(_managers.asset.GetTexture("tileset"));
-            int tileType = l.data[i] -1;
-            s.setTextureRect({tileType % tileset.columns * 130, tileType / tileset.columns * 130,
-                tileset.tilewidth, tileset.tileheight});
-        }
-
-        if (tileset.tiles[std::to_string(l.data[i])].type == "Terrain")
-            _colliders[i] = ETerrain;
-        else if (tileset.tiles[std::to_string(l.data[i])].type == "Kill")
-            _colliders[i] = EKiller;
-        else
-            _colliders[i] = ENone; //assuming only one tile can be at given place
-        _map.push_back(s);
-    }
+    _map.AddLayer(l.data);
 }
 
 void GameState::LoadObjectLayer(const LoaderStruct::layer& l) {
@@ -80,6 +62,7 @@ void GameState::HandleInput() {
 }
 
 void GameState::Update(float dt) {
+    _player.BeforeUpdate();
     _player.Update(dt);
     _camera.Update();
 }

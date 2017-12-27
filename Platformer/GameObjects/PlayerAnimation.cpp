@@ -1,4 +1,5 @@
 #include "PlayerAnimation.hpp"
+#include "GameObject.hpp"
 #include "../Definitions.hpp"
 #include "../GameEngine.hpp"
 

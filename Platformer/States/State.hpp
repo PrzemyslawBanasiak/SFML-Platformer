@@ -1,7 +1,6 @@
 #pragma once
-struct Managers;
 
-class State{
+class State {
 public:
     virtual void Init() = 0;
     virtual void Cleanup() = 0;

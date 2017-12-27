@@ -10,8 +10,12 @@ RigidBody::RigidBody(GameObject& gameObject, const std::vector<char>& map, int m
     
 }
 
+void RigidBody::BeforeUpdate() {
+    _velocity = {0.0f, 0.0f};
+}
+
 void RigidBody::Update(float dt) {
-    _gameObject.Move(_velocity * dt);
+    _gameObject.GetSprite().move(_velocity * dt);
     if(IsInAir()) {
         _velocity += Physics::Gravity * dt;
     } else {
@@ -30,6 +34,6 @@ std::vector<GameObject> RigidBody::GetCollidingObjects() {
     return {};
 }
 
-void RigidBody::AddForce(const sf::Vector2f &dir) {
+void RigidBody::Move(const sf::Vector2f &dir) {
     _velocity += dir;
 }

@@ -63,6 +63,9 @@
     <ClCompile Include="Platformer\GameObjects\PlayerAnimation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Platformer\GameMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="platformer\Camera.hpp">
@@ -114,6 +117,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Platformer\GameObjects\PlayerAnimation.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Platformer\GameMap.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

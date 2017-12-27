@@ -31,7 +31,7 @@ namespace FilePaths {
 
 const float SPLASH_SCREEN_TIME = 0.0f;
 const float PLAYER_SPEED = 220.0f;
-const float JUMP_SPEED = 30.0f; //It's PLAYER_SPEED * JUMP_SPEED * input.y
+const float JUMP_SPEED = 30.0f;
 const float FRAME_TIME = 0.1f;
 
 std::string JoinUrls(std::string url1, std::string url2);
@@ -46,3 +46,10 @@ namespace Custom {
         return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
     }
 }
+
+
+enum ColliderType {
+    ENone = 0,
+    ETerrain,
+    EKiller
+};
