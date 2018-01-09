@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "State.hpp"
+#include "../Background.hpp"
 #include "../Camera.hpp"
 #include "../GameObjects/Player.hpp"
 #include "../GameMap.hpp"
@@ -21,6 +22,7 @@ public:
     void Update(float dt) override;
     void Draw(float dt) override;
 private:
+    Background _background;
     GameMap _map;
     std::string _level;    
     Managers& _managers;

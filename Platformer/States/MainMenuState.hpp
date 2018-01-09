@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML\Graphics.hpp>
 #include "State.hpp"
+#include "../Background.hpp"
 
 struct Managers;
 
@@ -19,6 +20,7 @@ public:
     void Draw(float dt) override;
 private:
     Managers& _managers;
+    Background _background;
     int activeSelection = 0;
     sf::Text Title;
     sf::Text NewGame;

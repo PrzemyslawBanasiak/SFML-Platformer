@@ -107,6 +107,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Platformer\Background.cpp" />
     <ClCompile Include="platformer\Camera.cpp" />
     <ClCompile Include="platformer\Definitions.cpp" />
     <ClCompile Include="platformer\GameEngine.cpp" />
@@ -126,6 +127,7 @@
     <ClCompile Include="platformer\states\SplashScreenState.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Platformer\Background.hpp" />
     <ClInclude Include="platformer\Camera.hpp" />
     <ClInclude Include="platformer\Definitions.hpp" />
     <ClInclude Include="platformer\GameEngine.hpp" />

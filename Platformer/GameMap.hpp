@@ -26,6 +26,7 @@ public:
 
     int tileWidth();
     int tileHeight();
+    int mapHeight();
 private:
     void LoadLayer(const LoaderStruct::layer & layer);
     void loadTileLayer(const LoaderStruct::layer & layer);

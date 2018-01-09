@@ -8,13 +8,13 @@ GameState::GameState(std::string level, Managers& managers)
     : _level(level)
     , _managers(managers)
     , _map(managers)
+    , _background(managers)
 {}
 
 void GameState::Init() {
     LevelLoader loader(FilePaths::Level1);
     _managers.asset.LoadTexture("tileset", JoinUrls(FilePaths::Level1, loader.GetTilesets()[0].image));
     _map.LoadMap(std::move(loader.GetMap()));
-
 
     GameObject* p = _map.getPlayer();
     if (!p) {
@@ -53,7 +53,7 @@ void GameState::Update(float dt) {
 
 void GameState::Draw(float dt) {
     _camera.Render(_managers.window);
-    _managers.window.clear(GameColor::LightBlue);
+    _background.Draw();
     for(const auto& s : _map.getSprites())
         _managers.window.draw(s);
     _managers.window.draw(_map.getPlayer()->GetSprite());

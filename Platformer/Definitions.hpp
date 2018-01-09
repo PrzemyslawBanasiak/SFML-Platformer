@@ -3,9 +3,12 @@
 #include <memory>
 #include <string>
 
+const int screen_width = 1024;
+const int screen_height = 768;
+
 namespace GameColor {
     const sf::Color Blue = {48, 60, 116};
-    const sf::Color LightBlue = {48, 60, 116};
+    const sf::Color LightBlue = {94, 127, 141};
     const sf::Color DarkBlue = {48, 60, 116};
     
     const sf::Color Green = {132, 161, 54};
@@ -27,19 +30,20 @@ namespace FilePaths {
     const std::string MenuFont      = ResourceDir + "/Fonts/VCR_OSD_MONO.ttf";
     const std::string Level1        = ResourceDir + "/Levels/Mapa1.json";
     const std::string Player        = ResourceDir + "/Images/character/sheet/walk_sheet.png";
+    const std::string Background    = ResourceDir + "/Images/bg.png";
 }
 
 const float SPLASH_SCREEN_TIME = 0.0f;
 
 const float PLAYER_SPEED = 200.0f; //px/s
-const float JUMP_SPEED = 32.0f;  //px/s
+const float JUMP_SPEED = 320.0f;  //px/s
 const float FRAME_TIME = 0.1f;
 const int TILE_WIDTH = 128;
 
 std::string JoinUrls(std::string url1, std::string url2);
 
 namespace Physics {
-    const sf::Vector2f Gravity = {0.0f, 30.0f};
+    const sf::Vector2f Gravity = {0.0f, 320.0f};
     const int CharCollWidth = 80;
     const int CharCollHeight = 120;
     const float maxMovePerFrame = 62.0f;

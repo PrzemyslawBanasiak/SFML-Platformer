@@ -30,7 +30,7 @@ void RigidBody::Update(float dt) {
     ApplyFalling(dt);
     
     _newPos += _velocity;
-    _newPos.y += fallingSpeed;
+    _newPos.y += fallingSpeed * dt;
     ClearCollisions();
     _gameObject.GetSprite().setPosition(_newPos);
 }

@@ -4,7 +4,9 @@
 #include "GameState.hpp"
 #include "MainMenuState.hpp"
 
-MainMenuState::MainMenuState(Managers& managers) : _managers(managers) {
+MainMenuState::MainMenuState(Managers& managers) 
+    : _managers(managers)
+    , _background(managers) {
 }
 
 void MainMenuState::Init() {
@@ -60,7 +62,7 @@ void MainMenuState::Update(float dt) {
 }
 
 void MainMenuState::Draw(float dt) {
-    _managers.window.clear(GameColor::LightBlue);
+    _background.Draw();
     _managers.window.draw(Title);
     _managers.window.draw(NewGame);
     _managers.window.draw(Exit);

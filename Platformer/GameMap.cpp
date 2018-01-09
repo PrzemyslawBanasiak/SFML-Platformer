@@ -12,7 +12,7 @@ GameMap::GameMap(Managers& managers)
 }
 
 void GameMap::LoadMap(const LoaderStruct::map & map) {
-    _mapstruct = std::move(map);
+    _mapstruct = map;
     _colliders.resize(map.width * map.height);
     for (const auto& layer : map.layers)
         LoadLayer(layer);
@@ -59,6 +59,10 @@ int GameMap::tileWidth() {
 
 int GameMap::tileHeight() {
     return _mapstruct.tileheight;
+}
+
+int GameMap::mapHeight() {
+    return _mapstruct.height;
 }
 
 void GameMap::loadTileLayer(const LoaderStruct::layer & layer) {

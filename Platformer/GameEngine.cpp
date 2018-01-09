@@ -3,7 +3,7 @@
 #include "States/SplashScreenState.hpp"
 
 GameEngine::GameEngine(std::string name) {
-    _managers.window.create(sf::VideoMode(800, 600), "Plarformer", sf::Style::Close | sf::Style::Titlebar);
+    _managers.window.create(sf::VideoMode(screen_width, screen_height), "Plarformer", sf::Style::Close | sf::Style::Titlebar);
     _managers.state.ChangeState(std::unique_ptr<State>(new SplashScreenState(_managers)));
 }
 
@@ -14,7 +14,7 @@ GameEngine::~GameEngine() {
 void GameEngine::Run() {
     float dt;
     sf::Clock clock;
-    _managers.window.setFramerateLimit(10);
+    _managers.window.setFramerateLimit(60);
     while(_managers.window.isOpen()) {
         if (IsError())
             return Error("Error met, escaping game loop");
