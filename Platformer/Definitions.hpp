@@ -32,7 +32,7 @@ namespace FilePaths {
 const float SPLASH_SCREEN_TIME = 0.0f;
 
 const float PLAYER_SPEED = 200.0f; //px/s
-const float JUMP_SPEED = 30.0f;  //px/s
+const float JUMP_SPEED = 32.0f;  //px/s
 const float FRAME_TIME = 0.1f;
 const int TILE_WIDTH = 128;
 
@@ -49,6 +49,10 @@ namespace Custom {
     template<typename T, typename... Args>
     std::unique_ptr<T> make_unique(Args&&... args) {
         return std::unique_ptr<T>(new T(std::forward<Args>(args)...));
+    }
+
+    template <typename T> int sgn(T val) {
+        return (T(0) < val) - (val < T(0));
     }
 }
 

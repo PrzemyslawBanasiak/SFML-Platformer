@@ -40,8 +40,8 @@ GameObject* GameMap::getPlayer() {
 }
 
 ColliderType GameMap::tileAt(float x1, float y1) {
-    int x = x1 / _mapstruct.tilewidth; 
-    int y = y1 / _mapstruct.tileheight;
+    int x = (int)x1 / _mapstruct.tilewidth; 
+    int y = (int)y1 / _mapstruct.tileheight;
     return (ColliderType)_colliders[x + y * _mapstruct.width];
 }
 
@@ -67,7 +67,7 @@ void GameMap::loadTileLayer(const LoaderStruct::layer & layer) {
     for (size_t i = 0; i < layer.data.size(); ++i) {
         sf::Sprite s;
         int tile = layer.data[i]-1;
-        s.setPosition((i % _mapstruct.width) * _mapstruct.tilewidth, (i / _mapstruct.width) * _mapstruct.tilewidth);
+        s.setPosition((float)(i % _mapstruct.width * _mapstruct.tilewidth), (float)(i / _mapstruct.width * _mapstruct.tilewidth));
         if (tile != -1) {
             s.setTexture(_managers.asset.GetTexture("tileset"));
             s.setTextureRect({  tile % tileset.columns * tileSetTileWidth, 
@@ -90,7 +90,7 @@ void GameMap::loadTileLayer(const LoaderStruct::layer & layer) {
 void GameMap::loadObjectLayer(const LoaderStruct::layer & layer) {
     for (const auto& i : layer.objects) {
         if (i.type == "Player") {
-            _gameObjects.emplace_back(new Player(_managers, sf::Vector2f(i.x, i.y)));
+            _gameObjects.emplace_back(new Player(_managers, sf::Vector2f((float)i.x, (float)i.y)));
         }
     }
 }

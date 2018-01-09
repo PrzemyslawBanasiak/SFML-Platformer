@@ -8,7 +8,7 @@ public:
                           const sf::RenderWindow& window,
                           sf::Mouse::Button button = sf::Mouse::Left) {
         return sf::Mouse::isButtonPressed(button)
-            && sprite.getGlobalBounds().contains(sf::Mouse::getPosition(window).x, sf::Mouse::getPosition(window).y);
+            && sprite.getGlobalBounds().contains((float)sf::Mouse::getPosition(window).x, (float)sf::Mouse::getPosition(window).y);
     }
     
     static sf::Vector2f GetInputAxis();

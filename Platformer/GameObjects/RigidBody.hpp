@@ -23,7 +23,7 @@ private:
 
     void ApplyFalling(float dt);
     void ClearCollisions();
-    const sf::Vector2f & limitMove(const sf::Vector2f & vec);
+    sf::Vector2f limitMove(sf::Vector2f vec);
     void moveAlongX();
     float fallingSpeed = 0.0f;
 

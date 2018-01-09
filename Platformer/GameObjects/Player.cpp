@@ -28,6 +28,8 @@ void Player::Jump(sf::Vector2f& input) {
     if (!_rigidbody->IsInAir()) {
         canJump = true;
         canDoubleJump = true;
+    } else {
+        canJump = false;
     }
     if (input.y == 0)
         spaceReleased = true;
