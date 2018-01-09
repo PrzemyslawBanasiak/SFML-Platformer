@@ -2,7 +2,6 @@
 #include <string>
 #include "State.hpp"
 #include "../Camera.hpp"
-#include "../LevelLoader.hpp"
 #include "../GameObjects/Player.hpp"
 #include "../GameMap.hpp"
 
@@ -22,19 +21,10 @@ public:
     void Update(float dt) override;
     void Draw(float dt) override;
 private:
-    void LoadTileLayer(const LoaderStruct::layer& l);
-    void LoadObjectLayer(const LoaderStruct::layer& l);
-
     GameMap _map;
-
-
-    //std::vector<sf::Sprite> _map;
-    //std::vector<char> _colliders;
-    
+    std::string _level;    
     Managers& _managers;
     Camera _camera;
-    LevelLoader _loader;
-    Player _player;
     float playerSpeed = 100.0f;
 };
 

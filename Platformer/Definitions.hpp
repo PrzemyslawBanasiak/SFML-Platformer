@@ -21,7 +21,7 @@ namespace FilePaths {
 #ifdef  __OSX__
     const std::string ResourceDir = "/Users/przemekbanasiak/Projects/Platformer/Platformer/Resources";
 #else
-    const std::string ResourceDir = "C:\\Users\\zellu\\Desktop\\Projects\\platformer\\Debug\\Resources";
+    const std::string ResourceDir = "C:\\Users\\zellu\\Desktop\\Projects\\platformer\\Platformer\\Resources";
 #endif
     const std::string SplashScreen  = ResourceDir + "/Images/Splash.png";
     const std::string MenuFont      = ResourceDir + "/Fonts/VCR_OSD_MONO.ttf";
@@ -30,14 +30,19 @@ namespace FilePaths {
 }
 
 const float SPLASH_SCREEN_TIME = 0.0f;
-const float PLAYER_SPEED = 220.0f;
-const float JUMP_SPEED = 30.0f;
+
+const float PLAYER_SPEED = 200.0f; //px/s
+const float JUMP_SPEED = 30.0f;  //px/s
 const float FRAME_TIME = 0.1f;
+const int TILE_WIDTH = 128;
 
 std::string JoinUrls(std::string url1, std::string url2);
 
 namespace Physics {
-    const sf::Vector2f Gravity = {0.0f, 98.0f};
+    const sf::Vector2f Gravity = {0.0f, 30.0f};
+    const int CharCollWidth = 80;
+    const int CharCollHeight = 120;
+    const float maxMovePerFrame = 62.0f;
 }
 
 namespace Custom {
@@ -53,3 +58,8 @@ enum ColliderType {
     ETerrain,
     EKiller
 };
+
+void Info(std::string info);
+void Warning(std::string info);
+void Error(std::string error);
+bool IsError();

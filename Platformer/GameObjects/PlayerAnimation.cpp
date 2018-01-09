@@ -35,13 +35,13 @@ PlayerAnimation::PlayerAnimation(GameObject& gameObject, Managers& managers)
                                       (float)_gameObject.GetSprite().getTextureRect().height});
 }
 
-void PlayerAnimation::Update(float dt, bool lookRight) {
+void PlayerAnimation::Update(float dt, const sf::Vector2f& vel) {
     _frameTime += dt;
     if (FRAME_TIME < _frameTime) {
         _frame = (_frame + 1) % 2;
         _frameTime = 0;
     }
-    _gameObject.GetSprite().setScale(lookRight ? 1.0f : -1.0f, 1.0f);
+    _gameObject.GetSprite().setScale(vel.x > 0 ? 1.0f : -1.0f, 1.0f);
     _gameObject.GetSprite().setTextureRect(walk[_frame]);
 }
 

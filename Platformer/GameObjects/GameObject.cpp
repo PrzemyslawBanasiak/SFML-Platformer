@@ -18,7 +18,7 @@ void GameObject::SetSprite(sf::Sprite &sprite) {
     _sprite = sprite;
 }
 
-const std::string& GameObject::GetTag() {
+const std::string& GameObject::GetTag() const {
     return _tag;
 }
 

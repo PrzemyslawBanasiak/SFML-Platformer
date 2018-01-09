@@ -7,7 +7,7 @@ class GameObject;
 class PlayerAnimation {
 public:
     PlayerAnimation(GameObject& gameObject, Managers& managers);
-    void Update(float dt, bool lookRight);
+    void Update(float dt, const sf::Vector2f& vel);
     void UpdateVariable(sf::Vector2f velocity);
 private:
     sf::Vector2f _velocity;

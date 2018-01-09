@@ -1,4 +1,5 @@
 #include "GameEngine.hpp"
+#include "Definitions.hpp"
 #include "States/SplashScreenState.hpp"
 
 GameEngine::GameEngine(std::string name) {
@@ -13,7 +14,10 @@ GameEngine::~GameEngine() {
 void GameEngine::Run() {
     float dt;
     sf::Clock clock;
+    _managers.window.setFramerateLimit(10);
     while(_managers.window.isOpen()) {
+        if (IsError())
+            return Error("Error met, escaping game loop");
         dt = clock.restart().asSeconds();
     
         _managers.state.GetActiveState()->HandleInput();

@@ -1,29 +1,96 @@
 #include "GameMap.hpp"
+#include "GameEngine.hpp"
+#include "LevelLoader.hpp"
+#include <map>
 #include "Definitions.hpp"
+#include <iostream>
 
 
-/*void GameMap::AddLayer(const std::vector<int>& layerData)
-    for (size_t i = 0; i < l.data.size(); ++i) {
+GameMap::GameMap(Managers& managers)
+    : _managers(managers)
+{
+}
+
+void GameMap::LoadMap(const LoaderStruct::map & map) {
+    _mapstruct = std::move(map);
+    _colliders.resize(map.width * map.height);
+    for (const auto& layer : map.layers)
+        LoadLayer(layer);
+}
+
+void GameMap::LoadLayer(const LoaderStruct::layer & layer) {
+    if (layer.type == "tilelayer")
+        loadTileLayer(layer);
+    else if (layer.type == "objectgroup")
+        loadObjectLayer(layer);
+}
+
+const std::vector<sf::Sprite>& GameMap::getSprites() {
+    return _map;
+}
+
+const std::vector<char>& GameMap::getColliders() {
+    return _colliders;
+}
+
+GameObject* GameMap::getPlayer() {
+    return std::find_if(_gameObjects.begin(), _gameObjects.end(), [](std::unique_ptr<GameObject>& ga) {
+        return ga->GetTag() == "Player";
+    })->get();
+}
+
+ColliderType GameMap::tileAt(float x1, float y1) {
+    int x = x1 / _mapstruct.tilewidth; 
+    int y = y1 / _mapstruct.tileheight;
+    return (ColliderType)_colliders[x + y * _mapstruct.width];
+}
+
+ColliderType GameMap::tileAt(const sf::Vector2f & pos) {
+    return tileAt(pos.x, pos.y);
+}
+
+ColliderType GameMap::tileAtIndex(int x, int y) {
+    return (ColliderType)_colliders[x + y * _mapstruct.width];
+}
+
+int GameMap::tileWidth() {
+    return _mapstruct.tilewidth;
+}
+
+int GameMap::tileHeight() {
+    return _mapstruct.tileheight;
+}
+
+void GameMap::loadTileLayer(const LoaderStruct::layer & layer) {
+    const auto tileset = _mapstruct.tilesets[0];
+    int tileSetTileWidth = tileset.tilewidth + tileset.spacing;
+    for (size_t i = 0; i < layer.data.size(); ++i) {
         sf::Sprite s;
-        s.setPosition((i % _loader.GetMap().width) * tileset.tilewidth,
-            (i / _loader.GetMap().width) * tileset.tileheight);
-        if (l.data[i] != 0) {
+        int tile = layer.data[i]-1;
+        s.setPosition((i % _mapstruct.width) * _mapstruct.tilewidth, (i / _mapstruct.width) * _mapstruct.tilewidth);
+        if (tile != -1) {
             s.setTexture(_managers.asset.GetTexture("tileset"));
-            int tileType = l.data[i] - 1;
-            s.setTextureRect({tileType % tileset.columns * 130, tileType / tileset.columns * 130,
-                tileset.tilewidth, tileset.tileheight});
+            s.setTextureRect({  tile % tileset.columns * tileSetTileWidth, 
+                                tile / tileset.columns * tileSetTileWidth, 
+                                tileset.tilewidth, 
+                                tileset.tileheight});
         }
-
-        if (tileset.tiles[std::to_string(l.data[i])].type == "Terrain")
+        if(tile == -1)
+            _colliders[i] = ENone;
+        else if (tileset.tiles.at(std::to_string(tile)).type == "Terrain")
             _colliders[i] = ETerrain;
-        else if (tileset.tiles[std::to_string(l.data[i])].type == "Kill")
+        else if (tileset.tiles.at(std::to_string(tile)).type == "Kill")
             _colliders[i] = EKiller;
         else
-            _colliders[i] = ENone; //assuming only one tile can be at given place
+            _colliders[i] = ENone;
         _map.push_back(s);
     }
-}*/
+}
 
-void GameMap::LoadMap(const LoaderStruct::map & map) {}
-
-void GameMap::AddLayer(const std::vector<int>& layerData) {}
+void GameMap::loadObjectLayer(const LoaderStruct::layer & layer) {
+    for (const auto& i : layer.objects) {
+        if (i.type == "Player") {
+            _gameObjects.emplace_back(new Player(_managers, sf::Vector2f(i.x, i.y)));
+        }
+    }
+}
