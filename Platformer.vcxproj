@@ -122,8 +122,10 @@
     <ClCompile Include="platformer\managers\AssetManager.cpp" />
     <ClCompile Include="platformer\managers\InputManager.cpp" />
     <ClCompile Include="platformer\managers\StateMachine.cpp" />
+    <ClCompile Include="Platformer\MenuButtons.cpp" />
     <ClCompile Include="platformer\states\GameState.cpp" />
     <ClCompile Include="platformer\states\MainMenuState.cpp" />
+    <ClCompile Include="Platformer\States\PauseState.cpp" />
     <ClCompile Include="platformer\states\SplashScreenState.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -142,8 +144,10 @@
     <ClInclude Include="platformer\managers\AssetManager.hpp" />
     <ClInclude Include="platformer\managers\InputManager.hpp" />
     <ClInclude Include="platformer\managers\StateMachine.hpp" />
+    <ClInclude Include="Platformer\MenuButtons.hpp" />
     <ClInclude Include="platformer\states\GameState.hpp" />
     <ClInclude Include="platformer\states\MainMenuState.hpp" />
+    <ClInclude Include="Platformer\States\PauseState.hpp" />
     <ClInclude Include="platformer\states\SplashScreenState.hpp" />
     <ClInclude Include="platformer\states\State.hpp" />
   </ItemGroup>

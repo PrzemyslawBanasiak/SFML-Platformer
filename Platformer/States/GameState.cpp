@@ -1,4 +1,5 @@
 #include "GameState.hpp"
+#include "PauseState.hpp"
 #include <iostream>
 #include "../LevelLoader.hpp"
 #include "../GameEngine.hpp"
@@ -41,6 +42,9 @@ void GameState::HandleInput() {
     while (_managers.window.pollEvent(event)) {
         if (sf::Event::Closed == event.type) {
             _managers.window.close();
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+            _managers.state.AddState(std::unique_ptr<State>(new PauseState(_managers)));
         }
     }
 }

@@ -13,9 +13,11 @@ public:
     
     void AddState(StateRef state);
     void ChangeState(StateRef state);
+    void ReplaceStates(StateRef state);
     void PopState();
     
     StateRef& GetActiveState();
 private:
     std::stack<StateRef> _states;
+    StateRef _dump;
 };

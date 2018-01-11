@@ -33,6 +33,17 @@ void StateMachine::ChangeState(StateRef state) {
     _states.top()->Init();
 }
 
+void StateMachine::ReplaceStates(StateRef state) {
+    while (!_states.empty()) {
+        _states.top()->Cleanup();
+        _states.pop();
+    }
+
+    // store and init the new state
+    _states.push(std::move(state));
+    _states.top()->Init();
+}
+
 void StateMachine::PopState() {
     if (!_states.empty()) {
         _states.top()->Cleanup();

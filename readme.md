@@ -10,7 +10,6 @@ Todo:
 * Enemies,
 * Parallax background,
 * Keys, doors, traps etc.,
-* Game pause menu,
 * Better Collision detection with support for platforms and slides,
 * Dynamic resolution,
 * Get rid of SFML and move it to OpenGL or/and Metal.

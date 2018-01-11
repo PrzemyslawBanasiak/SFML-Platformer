@@ -22,9 +22,9 @@ public:
     void Update(float dt) override;
     void Draw(float dt) override;
 private:
+    std::string _level;
     Background _background;
     GameMap _map;
-    std::string _level;    
     Managers& _managers;
     Camera _camera;
     float playerSpeed = 100.0f;
