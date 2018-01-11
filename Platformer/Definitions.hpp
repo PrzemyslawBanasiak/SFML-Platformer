@@ -27,7 +27,8 @@ namespace FilePaths {
     const std::string ResourceDir = "C:\\Users\\zellu\\Desktop\\Projects\\platformer\\Platformer\\Resources";
 #endif
     const std::string SplashScreen  = ResourceDir + "/Images/Splash.png";
-    const std::string MenuFont      = ResourceDir + "/Fonts/VCR_OSD_MONO.ttf";
+    const std::string MenuFont      = ResourceDir + "/Fonts/kenvector_future.ttf";
+    const std::string UIPack        = ResourceDir + "/Images/UIPack.png";
     const std::string Level1        = ResourceDir + "/Levels/Mapa1.json";
     const std::string Player        = ResourceDir + "/Images/character/sheet/walk_sheet.png";
     const std::string Background    = ResourceDir + "/Images/bg.png";

@@ -1,4 +1,5 @@
 #pragma once
+#include <functional>
 #include <SFML\Graphics.hpp>
 #include "State.hpp"
 #include "../Background.hpp"
@@ -19,11 +20,11 @@ public:
     void Update(float dt) override;
     void Draw(float dt) override;
 private:
+    void SpawnButton(std::string text, float x, float y, std::function<void()> handler);
     Managers& _managers;
     Background _background;
-    int activeSelection = 0;
-    sf::Text Title;
-    sf::Text NewGame;
-    sf::Text Exit;
+
+    std::vector<sf::Text> _texts;
+    std::vector<std::pair<sf::Sprite, std::function<void()>>> _buttons;
 };
 
